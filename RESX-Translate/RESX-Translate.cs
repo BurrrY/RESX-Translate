@@ -32,7 +32,6 @@ namespace RESX_Translate
         {
 
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.SelectedPath = "D:\\Projekte\\Routenauswertung\\trunk\\Routenauswertung\\lang";
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = fbd.SelectedPath;
@@ -186,6 +185,11 @@ namespace RESX_Translate
                     }                    
                 }
             }
+        }
+
+        private void btnAddLanguage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

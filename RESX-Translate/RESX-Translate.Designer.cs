@@ -104,6 +104,7 @@
             this.btnAddLanguage.TabIndex = 4;
             this.btnAddLanguage.Text = "+ Sprache";
             this.btnAddLanguage.UseVisualStyleBackColor = true;
+            this.btnAddLanguage.Click += new System.EventHandler(this.btnAddLanguage_Click);
             // 
             // lb_Coordinates
             // 
