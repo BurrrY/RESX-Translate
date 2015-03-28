@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_SelectDir = new System.Windows.Forms.Button();
             this.tb_path = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -37,6 +37,7 @@
             this.lb_Coordinates = new System.Windows.Forms.Label();
             this.cb_DefaultSrc = new System.Windows.Forms.ComboBox();
             this.btn_CopyToDefault = new System.Windows.Forms.Button();
+            this.btn_Scan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,14 +69,14 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(12, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(542, 275);
@@ -139,11 +140,22 @@
             this.btn_CopyToDefault.UseVisualStyleBackColor = true;
             this.btn_CopyToDefault.Click += new System.EventHandler(this.btn_CopyToDefault_Click);
             // 
+            // btn_Scan
+            // 
+            this.btn_Scan.Location = new System.Drawing.Point(398, 319);
+            this.btn_Scan.Name = "btn_Scan";
+            this.btn_Scan.Size = new System.Drawing.Size(75, 23);
+            this.btn_Scan.TabIndex = 8;
+            this.btn_Scan.Text = "Scan Ordner";
+            this.btn_Scan.UseVisualStyleBackColor = true;
+            this.btn_Scan.Click += new System.EventHandler(this.btn_Scan_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 354);
+            this.Controls.Add(this.btn_Scan);
             this.Controls.Add(this.btn_CopyToDefault);
             this.Controls.Add(this.cb_DefaultSrc);
             this.Controls.Add(this.lb_Coordinates);
@@ -155,6 +167,7 @@
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "RESX-Translate";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -173,6 +186,7 @@
         private System.Windows.Forms.Label lb_Coordinates;
         private System.Windows.Forms.ComboBox cb_DefaultSrc;
         private System.Windows.Forms.Button btn_CopyToDefault;
+        private System.Windows.Forms.Button btn_Scan;
     }
 }
 

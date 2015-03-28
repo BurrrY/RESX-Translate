@@ -17,8 +17,12 @@ namespace RESX_Translate
     {
         List<Dictionary<string,string>> Dicts = new List<Dictionary<string,string>>();
         List<string> fileNames = new List<string>();
+        Settings s;
         public Form1()
         {
+
+            Settings.Load();
+            s = Settings.Instance;
             InitializeComponent();
         }
 
@@ -32,9 +36,11 @@ namespace RESX_Translate
         {
 
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.SelectedPath = s.FilePath;
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = fbd.SelectedPath;
+                s.FilePath = fbd.SelectedPath;
                 cb_DefaultSrc.Items.Clear();
 
                 tb_path.Text = path;
@@ -62,13 +68,18 @@ namespace RESX_Translate
                     string niceName = fi.Name.Substring(fi.Name.IndexOf('.') + 1);
 
                     if (!niceName.Contains('.'))
-                        niceName = "Default";
+                    {
+                        dataGridView1.Columns.Add("Default", "Default");
+
+                    }
                     else
+                    {
                         niceName = niceName.Substring(0, niceName.IndexOf('.')).ToUpper();
+                        dataGridView1.Columns.Add(fi.Name, niceName);
+                    }
 
-
-                    dataGridView1.Columns.Add(fi.Name, niceName);
                     cb_DefaultSrc.Items.Add(fi.Name);
+                
                 }
 
                 foreach (string file in fileNames)
@@ -159,10 +170,9 @@ namespace RESX_Translate
                 //getColumnID
                 var c = 0;
                 for (c = 0; c < dataGridView1.Columns.Count; ++c)
-                {
                     if (dataGridView1.Columns[c].HeaderText == "Default")
                         break;
-                }
+                
 
                 for(var r = 0;r<dataGridView1.Rows.Count-1;++r)                    
                     dataGridView1.Rows[r].Cells[c].Value = dataGridView1.Rows[r].Cells[cb_DefaultSrc.SelectedItem.ToString()].Value;
@@ -173,23 +183,72 @@ namespace RESX_Translate
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
-            {
                 if (dataGridView1.SelectedCells.Count > 0)
-                {
                     if (dataGridView1.SelectedCells.Count < 5 || MessageBox.Show("Alle markierten Zellen leeren?\r\n(STRG+Z funktioniert noch nicht ;))", "Sicher?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                    {
                         foreach (DataGridViewCell c in dataGridView1.SelectedCells)
-                        {
                             c.Value = null;
-                        }
-                    }                    
-                }
-            }
         }
 
         private void btnAddLanguage_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Scan_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.SelectedPath = s.SearchFilePath;
+            if (fbd.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return;
+
+            s.SearchFilePath = fbd.SelectedPath;
+            String[] allfiles = System.IO.Directory.GetFiles(fbd.SelectedPath, "*.cs", System.IO.SearchOption.AllDirectories);
+            foreach (string str in allfiles)
+            {
+                if (str.EndsWith(".Designer.cs") || str.Contains("TemporaryGeneratedFile"))
+                    continue;
+
+                StreamReader sr = new StreamReader(str);
+                string content = sr.ReadToEnd();
+                int pos = content.IndexOf("t.t(");
+                while (pos > 0)
+                {
+                    int end = content.IndexOf("\")", pos);
+                    string param = content.Substring(pos+4, end-pos-3);
+                    string[] text = param.Split(',');
+
+                    string Key = text[0].Replace("\"", "");
+
+                    if (!KeyExists(Key))
+                    {
+                        int row = dataGridView1.Rows.Add(1);
+                        dataGridView1["Key", row].Value = Key;
+
+                        if (text.Length == 2)
+                            dataGridView1[1, row].Value = text[1].Replace("\"", "");
+
+
+                    }
+
+
+                    pos = content.IndexOf("t.t(", pos+1);
+                }
+            }            
+        }
+
+        private bool KeyExists(string Key)
+        {
+            for(int i=0;i<dataGridView1.Rows.Count;++i) {
+                if (dataGridView1["Key", i].Value != null &&dataGridView1["Key", i].Value.ToString() == Key)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            s.Save();
         }
     }
 }
