@@ -18,6 +18,7 @@ namespace RESX_Translate
         List<Dictionary<string,string>> Dicts = new List<Dictionary<string,string>>();
         List<string> fileNames = new List<string>();
         Settings s;
+        string defaultColumn;
         public Form1()
         {
 
@@ -69,7 +70,8 @@ namespace RESX_Translate
 
                     if (!niceName.Contains('.'))
                     {
-                        dataGridView1.Columns.Add("Default", "Default");
+                        dataGridView1.Columns.Add(fi.Name, "Default");
+                        defaultColumn = fi.Name;
 
                     }
                     else
@@ -104,6 +106,9 @@ namespace RESX_Translate
                 lb_Coordinates.Text = dataGridView1.Rows.Count.ToString();
                 btn_CopyToDefault.Enabled = true;
                 cb_DefaultSrc.Enabled = true;
+
+                if (dataGridView1.ColumnCount < 6)
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 
@@ -225,9 +230,7 @@ namespace RESX_Translate
                         dataGridView1["Key", row].Value = Key;
 
                         if (text.Length == 2)
-                            dataGridView1[1, row].Value = text[1].Replace("\"", "");
-
-
+                            dataGridView1[defaultColumn, row].Value = text[1].Replace("\"", "");
                     }
 
 

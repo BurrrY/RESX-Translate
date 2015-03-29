@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_SelectDir = new System.Windows.Forms.Button();
             this.tb_path = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,7 +44,7 @@
             // btn_SelectDir
             // 
             this.btn_SelectDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_SelectDir.Location = new System.Drawing.Point(442, 9);
+            this.btn_SelectDir.Location = new System.Drawing.Point(741, 9);
             this.btn_SelectDir.Name = "btn_SelectDir";
             this.btn_SelectDir.Size = new System.Drawing.Size(31, 23);
             this.btn_SelectDir.TabIndex = 0;
@@ -58,7 +58,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_path.Location = new System.Drawing.Point(12, 12);
             this.tb_path.Name = "tb_path";
-            this.tb_path.Size = new System.Drawing.Size(424, 20);
+            this.tb_path.Size = new System.Drawing.Size(723, 20);
             this.tb_path.TabIndex = 1;
             // 
             // dataGridView1
@@ -69,17 +69,17 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(12, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(542, 275);
+            this.dataGridView1.Size = new System.Drawing.Size(841, 389);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
@@ -87,7 +87,7 @@
             // btn_Save
             // 
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Save.Location = new System.Drawing.Point(479, 319);
+            this.btn_Save.Location = new System.Drawing.Point(778, 433);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
             this.btn_Save.TabIndex = 3;
@@ -99,7 +99,7 @@
             // 
             this.btnAddLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddLanguage.Enabled = false;
-            this.btnAddLanguage.Location = new System.Drawing.Point(479, 9);
+            this.btnAddLanguage.Location = new System.Drawing.Point(778, 9);
             this.btnAddLanguage.Name = "btnAddLanguage";
             this.btnAddLanguage.Size = new System.Drawing.Size(75, 23);
             this.btnAddLanguage.TabIndex = 4;
@@ -111,7 +111,7 @@
             // 
             this.lb_Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lb_Coordinates.AutoSize = true;
-            this.lb_Coordinates.Location = new System.Drawing.Point(12, 324);
+            this.lb_Coordinates.Location = new System.Drawing.Point(12, 438);
             this.lb_Coordinates.Name = "lb_Coordinates";
             this.lb_Coordinates.Size = new System.Drawing.Size(35, 13);
             this.lb_Coordinates.TabIndex = 5;
@@ -119,20 +119,19 @@
             // 
             // cb_DefaultSrc
             // 
-            this.cb_DefaultSrc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_DefaultSrc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_DefaultSrc.Enabled = false;
             this.cb_DefaultSrc.FormattingEnabled = true;
-            this.cb_DefaultSrc.Location = new System.Drawing.Point(93, 321);
+            this.cb_DefaultSrc.Location = new System.Drawing.Point(55, 435);
             this.cb_DefaultSrc.Name = "cb_DefaultSrc";
-            this.cb_DefaultSrc.Size = new System.Drawing.Size(121, 21);
+            this.cb_DefaultSrc.Size = new System.Drawing.Size(415, 21);
             this.cb_DefaultSrc.TabIndex = 6;
             // 
             // btn_CopyToDefault
             // 
-            this.btn_CopyToDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_CopyToDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_CopyToDefault.Enabled = false;
-            this.btn_CopyToDefault.Location = new System.Drawing.Point(220, 319);
+            this.btn_CopyToDefault.Location = new System.Drawing.Point(476, 433);
             this.btn_CopyToDefault.Name = "btn_CopyToDefault";
             this.btn_CopyToDefault.Size = new System.Drawing.Size(109, 23);
             this.btn_CopyToDefault.TabIndex = 7;
@@ -142,7 +141,8 @@
             // 
             // btn_Scan
             // 
-            this.btn_Scan.Location = new System.Drawing.Point(398, 319);
+            this.btn_Scan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Scan.Location = new System.Drawing.Point(697, 433);
             this.btn_Scan.Name = "btn_Scan";
             this.btn_Scan.Size = new System.Drawing.Size(75, 23);
             this.btn_Scan.TabIndex = 8;
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 354);
+            this.ClientSize = new System.Drawing.Size(865, 468);
             this.Controls.Add(this.btn_Scan);
             this.Controls.Add(this.btn_CopyToDefault);
             this.Controls.Add(this.cb_DefaultSrc);
