@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RESX_Translate
@@ -17,13 +12,10 @@ namespace RESX_Translate
     {
         List<Dictionary<string,string>> Dicts = new List<Dictionary<string,string>>();
         List<string> fileNames = new List<string>();
-        Settings s;
+
         string defaultColumn;
         public Form1()
         {
-
-            Settings.Load();
-            s = Settings.Instance;
             InitializeComponent();
         }
 
@@ -37,11 +29,12 @@ namespace RESX_Translate
         {
 
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.SelectedPath = s.FilePath;
+            fbd.SelectedPath = Properties.Settings.Default.FilePath;
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = fbd.SelectedPath;
-                s.FilePath = fbd.SelectedPath;
+                Properties.Settings.Default.FilePath = fbd.SelectedPath;
+                Properties.Settings.Default.Save();
                 cb_DefaultSrc.Items.Clear();
 
                 tb_path.Text = path;
@@ -202,11 +195,11 @@ namespace RESX_Translate
         private void btn_Scan_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.SelectedPath = s.SearchFilePath;
+            fbd.SelectedPath = Properties.Settings.Default.SearchFilePath;
             if (fbd.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
-            s.SearchFilePath = fbd.SelectedPath;
+            Properties.Settings.Default.SearchFilePath = fbd.SelectedPath;
             String[] allfiles = System.IO.Directory.GetFiles(fbd.SelectedPath, "*.cs", System.IO.SearchOption.AllDirectories);
             foreach (string str in allfiles)
             {
@@ -251,7 +244,7 @@ namespace RESX_Translate
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            s.Save();
+       
         }
     }
 }
