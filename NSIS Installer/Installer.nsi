@@ -4,7 +4,7 @@ Name "RESX-Translate"
 RequestExecutionLevel admin
 !define INSTALLNAME "RESX-Translate"
 !define COMPANY "FB_Software"
-!define VERSION 1.0.8.567
+!define VERSION 1.0.0.53
 ;in KB!
 !define INSTALLSIZE 4080
 
