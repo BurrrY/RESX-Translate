@@ -1,0 +1,1 @@
+copy ..\RESX-Translate\bin\Release\RESX-Translate.exe .\Files\RESX-Translate.exe
